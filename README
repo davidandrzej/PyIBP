@@ -1,0 +1,40 @@
+This code implements "accelerated" Gibbs sampling [1] for the
+linear-Gaussian infinite latent feature model (aka Indian Buffet
+Process or IBP) [2].
+
+This code also allows the use real-valued latent features [3], using a
+slice sampler for compatibility with the accelerated Gibbs scheme.
+
+New features are sampled using a Metropolis-Hastings scheme [4].
+
+
+EXAMPLE USAGE
+
+
+
+ACKNOWLEDGEMENTS
+
+Thanks to Finale Doshi-Velez for making her MATLAB code available, and
+for answering detailed questions about inference.
+
+The modified slice sampler for real-valued latent features was the
+result of discussion with David Knowles.
+
+
+REFERENCES
+
+[1] 
+Accelerated Gibbs sampling for the Indian buffet process
+Finale Doshi and Zoubin Ghahramani, ICML 2009
+
+[2]
+Infinite latent feature models and the Indian buffet process
+Tom Griffiths and Zoubin Ghahramani, NIPS 2006
+
+[3]
+Infinite Sparse Factor Analysis and Infinite Independent Components Analysis
+David Knowles and Zoubin Ghahramani, ICA 2007
+
+[4]
+Modeling Dyadic Data with Binary Latent Factors
+Edward Meeds, Zoubin Ghahramani, Radford Neal, and Sam Roweis, NIPS 2006
