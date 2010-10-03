@@ -373,20 +373,6 @@ class PyIBP(object):
                     # (if applicable)
                     if(self.useV):
                         self.ZV[i,singletons] = vnew
-                # !!! TESTING !!!
-                # zi = NP.reshape(self.ZV[i,:],(1,self.K))
-                # # The 'quick' way to handle new features
-                # quickInfo = self.updateInfo(infoA,zi,1)
-                # quickH = self.updateH(hA,zi,xi,1)
-                # # Versus 'always recalculate from scratch
-                # (meanA,covarA) = self.postA(self.X,self.ZV)
-                # (trueInfo,trueH) = self.toInfo(meanA,covarA)
-                # print ''
-                # print 'Deleted/added %d features' % (netdiff)
-                # print 'Max abs info diff = %f' % (
-                #     (NP.abs(quickInfo-trueInfo)).max())
-                # print 'Max bas h diff = %f' % (
-                #     (NP.abs(quickH-trueH)).max())
             # Add this point back into information
             #
             zi = NP.reshape(self.ZV[i,:],(1,self.K))
@@ -554,7 +540,8 @@ class PyIBP(object):
         else:        
             # Sanity check on 'missing' mask
             # (ensure no totally missing data or features)
-            assert(all(missing.sum(axis=0) < N) and all(missing.sum(axis=1) < D))
+            assert(all(missing.sum(axis=0) < N) and
+                   all(missing.sum(axis=1) < D))
             # Calculate column means without using the missing data
             censored = data * (NP.ones((N,D)) - missing)
             censoredmeans = censored.sum(axis=0) / (N-missing.sum(axis=0))
