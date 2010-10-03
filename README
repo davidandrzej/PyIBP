@@ -7,16 +7,15 @@ University of Wisconsin-Madison, USA
 
 DESCRIPTION
 
-This code implements "accelerated" Gibbs sampling [1] for the
-linear-Gaussian infinite latent feature model (aka Indian Buffet
-Process or IBP) [2].
+This code uses NumPy and SciPy to efficiently implement "accelerated"
+Gibbs sampling [1] for the linear-Gaussian infinite latent feature
+model (aka Indian Buffet Process or IBP) [2].
 
 This code also allows the use real-valued latent features [3], using a
-slice sampler for compatibility with the accelerated Gibbs scheme.
+novel slice sampler for compatibility with the accelerated Gibbs
+scheme.
 
 New features are sampled using a Metropolis-Hastings scheme [4].
-
-This code requires NumPy and SciPy.
 
 
 EXAMPLE USAGE
