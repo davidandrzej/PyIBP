@@ -5,6 +5,7 @@ import sys
 import cPickle as CP
 
 import numpy as NP
+import scipy.io as SPIO
 
 from PyIBP import PyIBP as IBP
 
@@ -18,8 +19,13 @@ from PyIBP import PyIBP as IBP
 # Number of full sampling sweeps
 numsamp = 5
 
-# Load and center the data
-(trueWeights,features,data) = CP.load(open('block_image_set.p'))
+# Load the data
+matvals = SPIO.loadmat('block_image_set.mat')
+trueWeights = matvals['trueWeights']
+features = matvals['features']
+data = matvals['data']
+
+# Center the data
 (N,D) = data.shape
 cdata = IBP.centerData(data)
 
