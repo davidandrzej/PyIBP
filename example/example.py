@@ -1,17 +1,22 @@
 """
 Run IBP on the synthetic 'Cambridge Bars' dataset
 """
+import sys
 import cPickle as CP
+
 import numpy as NP
 
 from PyIBP import PyIBP as IBP
 
-# Define hyperparameters
+# IBP parameter (gamma hyperparameters)
 (alpha, alpha_a, alpha_b) = (1., 1., 1.)
+# Observed data Gaussian noise (Gamma hyperparameters)
 (sigma_x, sx_a, sx_b) = (1., 1., 1.)
+# Latent feature weight Gaussian noise (Gamma hyperparameters)
 (sigma_a, sa_a, sa_b) = (1., 1., 1.)
 
-numsamp = 2000
+# Number of full sampling sweeps
+numsamp = 5
 
 # Load and center the data
 (trueWeights,features,data) = CP.load(open('block_image_set.p'))
@@ -35,3 +40,31 @@ for s in range(numsamp):
         print str(factor.reshape((6,6)))    
     # Take a new sample
     f.fullSample()    
+
+# If matplotlib is installed, plot ground truth vs learned factors
+try:
+    import matplotlib.pyplot as P
+    from scaledimage import scaledimage
+except:
+    print 'matplotlib not installed, skipping visualization...'
+    sys.exit(0)
+
+# Intensity plots of
+# -ground truth factor-feature weights (top)
+# -learned factor-feature weights (bottom)
+K = max(len(trueWeights), len(f.weights()))
+(fig, subaxes) = P.subplots(2, K)
+for sa in subaxes.flatten():
+    sa.set_visible(False)
+fig.suptitle('Ground truth (top) vs learned factors (bottom)')
+for (idx, trueFactor) in enumerate(trueWeights):
+    ax = subaxes[0, idx]
+    ax.set_visible(True)
+    scaledimage(trueFactor.reshape(6,6),
+                pixwidth=3, fig=ax)
+for (idx, learnedFactor) in enumerate(f.weights()):
+    ax = subaxes[1, idx]    
+    scaledimage(learnedFactor.reshape(6,6),
+                pixwidth=3, fig=ax)
+    ax.set_visible(True)
+P.show()    
