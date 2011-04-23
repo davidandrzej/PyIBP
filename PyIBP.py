@@ -25,6 +25,9 @@ import numpy.random as NR
 import scipy.stats as SPST
 import scipy.special as SPS
 
+# We will be taking log(0) = -Inf, so turn off this warning
+NP.seterr(divide='ignore')
+
 class PyIBP(object):
     """
     Implements fast Gibbs sampling for the linear-Gaussian
@@ -345,7 +348,7 @@ class PyIBP(object):
                                 covarLike + weightdiff*self.sigma_a**2,
                                 xi)
             lpaccept = min(0.0, lpnew-lpold)
-            lpreject = NP.log(1.0 - NP.exp(lpaccept))
+            lpreject = NP.log(max(1.0 - NP.exp(lpaccept), 1e-100))
             if(self.logBern(lpreject,lpaccept)):
                 # Accept the Metropolis-Hastings proposal
                 if(netdiff > 0):
