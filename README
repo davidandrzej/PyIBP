@@ -23,7 +23,8 @@ EXAMPLE USAGE
 See ./test/example.py for example usage on a simple synthetic dataset
 consisting of latent factors with nice structure.  This dataset is
 derived from the one packaged with Finale Doshi-Velez's accelerated
-IBP code (http://people.csail.mit.edu/finale).
+IBP code (http://people.csail.mit.edu/finale), but my understanding is
+that it originally appeared in earlier IBP work [2].
 
 
 ACKNOWLEDGEMENTS
