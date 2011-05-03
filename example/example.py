@@ -67,10 +67,10 @@ for (idx, trueFactor) in enumerate(trueWeights):
     ax = subaxes[0, idx]
     ax.set_visible(True)
     scaledimage(trueFactor.reshape(6,6),
-                pixwidth=3, fig=ax)
+                pixwidth=3, ax=ax)
 for (idx, learnedFactor) in enumerate(f.weights()):
     ax = subaxes[1, idx]    
     scaledimage(learnedFactor.reshape(6,6),
-                pixwidth=3, fig=ax)
+                pixwidth=3, ax=ax)
     ax.set_visible(True)
 P.show()    
