@@ -1,11 +1,11 @@
-# PYTHON IBP (PyIBP)
+## PYTHON IBP (PyIBP)
 
 David Andrzejewski (andrzeje@cs.wisc.edu) 
 Department of Computer Sciences 
 University of Wisconsin-Madison, USA
 
 
-## DESCRIPTION
+### DESCRIPTION
 
 This code uses NumPy and SciPy to efficiently implement "accelerated"
 Gibbs sampling [1] for the linear-Gaussian infinite latent feature
@@ -18,7 +18,7 @@ scheme [5].
 New features are sampled using a Metropolis-Hastings scheme [4].
 
 
-## EXAMPLE USAGE
+### EXAMPLE USAGE
 
 See ./test/example.py for example usage on a simple synthetic dataset
 consisting of latent factors with nice structure.  This dataset is
@@ -27,7 +27,7 @@ IBP code (http://people.csail.mit.edu/finale), but my understanding is
 that it originally appeared in earlier IBP work [2].
 
 
-## ACKNOWLEDGEMENTS
+### ACKNOWLEDGEMENTS
 
 Thanks to Finale Doshi-Velez for making MATLAB code available and for
 answering detailed questions about inference.  The modified slice
@@ -35,14 +35,14 @@ sampler for real-valued latent features was the result of discussions
 with David Knowles.
 
 
-## LICENSE
+### LICENSE
 
 This software is open-source, released under the terms of the GNU
 General Public License version 3, or any later version of the GPL (see
 COPYING).
 
 
-REFERENCES
+### REFERENCES
 
 [1] 
 Accelerated Gibbs sampling for the Indian buffet process
