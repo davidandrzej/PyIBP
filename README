@@ -13,7 +13,7 @@ model (aka Indian Buffet Process or IBP) [2].
 
 This code also allows the use real-valued latent features [3], using a
 novel slice sampler for compatibility with the accelerated Gibbs
-scheme.
+scheme [5].
 
 New features are sampled using a Metropolis-Hastings scheme [4].
 
@@ -59,3 +59,8 @@ David Knowles and Zoubin Ghahramani, ICA 2007
 [4]
 Modeling Dyadic Data with Binary Latent Factors
 Edward Meeds, Zoubin Ghahramani, Radford Neal, and Sam Roweis, NIPS 2006
+
+[5]
+[Accelerated Gibbs Sampling for Infinite Sparse Factor Analysis](http://www.david-andrzejewski.com/publications/llnl-accelerated-gibbs.pdf)
+David Andrzejewski, LLNL Technical Report (LLNL-TR-499647)
+
