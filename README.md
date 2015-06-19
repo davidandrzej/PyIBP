@@ -17,23 +17,27 @@ scheme [5].
 
 New features are sampled using a Metropolis-Hastings scheme [4].
 
-
 ### EXAMPLE USAGE
 
-See ./test/example.py for example usage on a simple synthetic dataset
+See ./example/example.py for example usage on a simple synthetic dataset
 consisting of latent factors with nice structure.  This dataset is
 derived from the one packaged with Finale Doshi-Velez's accelerated
 IBP code (http://people.csail.mit.edu/finale), but my understanding is
 that it originally appeared in earlier IBP work [2].
 
+This example also can be easily run with `make`.
 
 ### ACKNOWLEDGEMENTS
 
-Thanks to Finale Doshi-Velez for making MATLAB code available and for
-answering detailed questions about inference.  The modified slice
-sampler for real-valued latent features was the result of discussions
-with David Knowles.
+Thanks to
+[Finale Doshi-Velez](http://www.seas.harvard.edu/directory/finale) for
+making MATLAB code available and for answering detailed questions
+about inference.  The modified slice sampler for real-valued latent
+features was the result of discussions with
+[David Knowles](http://cs.stanford.edu/people/davidknowles/).
 
+Thanks to [Christine Chai](https://github.com/star1327p) for
+contributing an easier-to-use Makefile for running the example.
 
 ### LICENSE
 
@@ -64,3 +68,6 @@ Edward Meeds, Zoubin Ghahramani, Radford Neal, and Sam Roweis, NIPS 2006
 [Accelerated Gibbs Sampling for Infinite Sparse Factor Analysis](http://www.david-andrzejewski.com/publications/llnl-accelerated-gibbs.pdf)
 David Andrzejewski, LLNL Technical Report (LLNL-TR-499647)
 
+[6]
+[STA663 Statistical Computation Final Project - Implementation of the Indian Buffet Process (IBP).](https://github.com/star1327p/STA663-Christine-Chai-Final-Project)
+Christine P. Chai
