@@ -4,7 +4,7 @@ David Andrzejewski (andrzeje@cs.wisc.edu)
 Department of Computer Sciences 
 University of Wisconsin-Madison, USA
 
-[[https://github.com/davidandrzej/PyIBP/blob/master/example/example-result.png|alt=example-result]]
+![Example output plots](example/example-result.png "Example inferred latent components on simple synthetic dataset.")
 
 ### DESCRIPTION
 
