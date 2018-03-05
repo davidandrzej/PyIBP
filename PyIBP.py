@@ -25,6 +25,8 @@ import numpy.random as NR
 import scipy.stats as SPST
 import scipy.special as SPS
 
+import pdb
+
 # We will be taking log(0) = -Inf, so turn off this warning
 NP.seterr(divide='ignore')
 
@@ -257,7 +259,7 @@ class PyIBP(object):
                 try:
                     (meanA,covarA) = self.postA(self.X,self.ZV)
                     (infoA,hA) = self.toInfo(meanA,covarA)
-                except Exception,e:
+                except Exception as e:
                     pdb.set_trace()                
             # Get (z,x) for this data point
             (zi,xi) = (NP.reshape(self.ZV[i,:],(1,self.K)),
@@ -406,33 +408,33 @@ class PyIBP(object):
 
     def sampleReport(self,sampleidx):
         """ Print IBP sample status """
-        print 'iter %d' % sampleidx
-        print '\tcollapsed loglike = %f' % self.logLike()
-        print '\tK = %d' % self.K
-        print '\talpha = %f' % self.alpha
-        print '\tsigma_x = %f' % self.sigma_x
-        print '\tsigma_a = %f' % self.sigma_a
+        print('iter %d' % sampleidx)
+        print('\tcollapsed loglike = %f' % self.logLike())
+        print('\tK = %d' % self.K)
+        print('\talpha = %f' % self.alpha)
+        print('\tsigma_x = %f' % self.sigma_x)
+        print('\tsigma_a = %f' % self.sigma_a)
                 
     def weightReport(self,trueWeights=None,round=False):
         """ Print learned weights (vs ground truth if available) """
         if(trueWeights != None):
-            print '\nTrue weights (A)'
-            print str(trueWeights)
-        print '\nLearned weights (A)'
+            print('\nTrue weights (A)')
+            print(str(trueWeights))
+        print('\nLearned weights (A)')
         # Print rounded or actual weights?
         if(round):
-            print str(self.weights().astype(NP.int))
+            print(str(self.weights().astype(NP.int)))
         else:
-            print NP.array_str(self.weights(),precision=2,suppress_small=True)
-        print ''
+            print(NP.array_str(self.weights(),precision=2,suppress_small=True))
+        print('')
         # Print V matrix if applicable
         if(self.useV):
-            print '\nLatent feature weights (V)'
-            print NP.array_str(self.ZV,precision=2)
-            print ''
+            print('\nLatent feature weights (V)')
+            print(NP.array_str(self.ZV,precision=2))
+            print('')
         # Print 'popularity' of latent features
-        print '\nLatent feature counts (m)'
-        print NP.array_str(self.m)
+        print('\nLatent feature counts (m)')
+        print(NP.array_str(self.m))
 
     #
     # Bookkeeping and calculation methods
